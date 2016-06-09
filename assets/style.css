@@ -1,0 +1,19 @@
+nav{
+	background-color: #eee;
+}
+
+.add{
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+.courses{
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-top: 30px;
+	padding: 15px;
+}
+/*
+.data {
+	border: 1px solid #ccc;;
+}*/
