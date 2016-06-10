@@ -9,6 +9,12 @@ class Course extends CI_Model {
 			return $this->db->query($query, $values);
 		}
 
+	function delete_course($course_info){
+
+		$query = "DELETE FROM courses WHERE id = $course_info";
+		return $this->db->query($query);
+	}
+
 	function get_all_courses(){
 		return $this->db->query("SELECT * FROM courses")->result_array();
 		
@@ -19,10 +25,7 @@ class Course extends CI_Model {
 		return $this->db->query("SELECT * FROM courses WHERE id = ?", array($course_id))->row_array();
 	}
 
-	// function get_column_names(){
-	// 	return $this->db->query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS 
-	// 		WHERE TABLE_SCHEMA = 'courses' AND TABLE_NAME = 'courses'");
-	// }
+	
 
 }
 

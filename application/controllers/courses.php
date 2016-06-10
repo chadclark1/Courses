@@ -11,11 +11,9 @@ class Courses extends CI_Controller {
 	{
 		$this->load->model('Course');
 		$show_courses = $this->Course->get_all_courses();
-		// $show_columns = $this->Course->get_column_names();
-
-		// var_dump($show_columns); die();
 		
-		$this->load->view('index', array('courses'=> $show_courses, 'column' => $show_columns));
+
+		$this->load->view('index', array('courses'=> $show_courses));
 	}
 
 	public function add()
@@ -25,14 +23,18 @@ class Courses extends CI_Controller {
 		$course_info = $this->input->post();
 		$this->Course->add_course($course_info);
 		$course = $this->Course->add_course($course_info);
-		var_dump($course_info);
+	
+		redirect('/');
+	}
 
-		// $this->input->post('name');
-		// $this->input->post('description');
+	public function delete($id)
+	{
+		
+		$this->load->model('Course');
+		$this->Course->delete_course($id);
+		
 
-		echo "add"; die();
-
-		// $this->load->view('index');
+		redirect('/');
 	}
 
 }

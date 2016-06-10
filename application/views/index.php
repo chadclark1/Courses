@@ -1,4 +1,4 @@
-<?php echo "hi courses2"; ?>
+<?php echo "hi courses2";?>
 
 <!DOCTYPE html>
 <html>
@@ -33,12 +33,12 @@
 			</div>
 			<div class="col-md-10 col-md-offset-1 courses text-center">
 				<table class="table">
-				<thead class="">
+					<thead class="">
 
-				<th>ID</th>
-				<th>Course</th>
-				<th>Description</th>
-				<th>Actions</th>
+						
+						<th>Course</th>
+						<th>Description</th>
+						<th>Actions</th>
 <!-- <?php 
 
 	// echo $column;
@@ -51,37 +51,32 @@
 	// 	}
 	// }
 ?> -->
-				</thead>
+					</thead>
+
+
 <?php 
-	foreach ($courses as $key => $value) {
+	foreach ($courses as $course) {
+
+		$id = $course['id'];
 ?>
+
 				<tr>
-<?php
-		foreach ($value as $data => $info) {
-			// echo $key['courses'] . " " . $key['description'] . "<br>";
-			// echo  $key . " " . $info . "<br>";
-			// echo $info['courses'] . " " . $info['description'] . "<br>";
-			// var_dump($data);
-?>
-			
-			<td class="col-md-3 data"><?php echo $info ?></td>
 
 			
-
-<?php 
-		}
-
-?>
-				<td class="col-md-3 data">remove</td>
+					<td class="col-md-4 data"><?php echo $course['courses']; ?></td>
+					<td class="col-md-4 data"><?php echo $course['description']; ?></td>
+					<td class="col-md-4 data">
+						<form action="/courses/delete/<?php echo $id ?>" method="post">
+					  		<button type="submit" class="btn btn-primary">Delete</button>
+					  		<!-- <input type="hidden" name="message-id" value="<?php echo $id?>"></input> -->
+						</form>
+					</td>
 				</tr>
+
 <?php
 
-
-		// var_dump($value) . "<br>";
-		// echo $value . "<br>";
 	}
-
-// var_dump($courses); ?>
+ ?>
 				</table>
 			</div>
 		</div>
